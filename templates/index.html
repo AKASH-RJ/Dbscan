@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spam/Bot Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Spam / Bot Detection</h1>
+        <form method="POST">
+            <label>Messages per Minute:</label>
+            <input type="number" step="0.1" name="messages_per_minute" required>
+
+            <label>Average Word Length:</label>
+            <input type="number" step="0.1" name="avg_word_length" required>
+
+            <label>Links per Message:</label>
+            <input type="number" step="0.1" name="links_per_message" required>
+
+            <button type="submit">Check</button>
+        </form>
+
+        {% if prediction %}
+            <h2>Prediction: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
